@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>RetroTube Y2K - Star Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="star-container"></div>
+
+    <header class="top-nav">
+        <div class="logo">RETRO<span>TUBE</span></div>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Busca tu artista...">
+            <button type="button" onclick="handleSearch()">SEARCH</button>
+        </div>
+    </header>
+
+    <main class="main-layout">
+        <section class="video-section">
+            <div class="video-frame">
+                <div id="player" class="screen">[ SELECCIONA UN VIDEO ]</div>
+            </div>
+            <div class="video-info">
+                <h1 id="currentTitle">Bienvenido a RetroTube</h1>
+                <p id="currentArtist">Busca música para empezar</p>
+                <div style="font-size: 10px; color: #555; margin-top: 10px;">V1.0.4 | 2026 Edition</div>
+            </div>
+        </section>
+
+        <aside class="sidebar">
+            <h3 class="sidebar-title">RESULTADOS</h3>
+            <div id="resultsList" class="playlist-scroll"></div>
+        </aside>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
