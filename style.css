@@ -144,4 +144,31 @@ body {
     font-size: 18px;
     color: #bc13fe;
     margin: 0;
+
+}
+
+/* Asegura que el contenedor del video ocupe todo el espacio neón */
+.screen {
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-wrapper, #main-video {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Estilo para que tus controles floten sobre el video */
+.custom-controls {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 10; /* Para que esté por encima del video */
 }
