@@ -49,10 +49,14 @@ body {
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: var(--violet-bright);
-    text-shadow: 0 0 10px var(--violet-glow);
+    animation: glitch 3s infinite;
+}
+
+@keyframes glitch {
+    0%, 90%, 100% { transform: translate(0); }
+    92% { transform: translate(-2px, 1px); }
+    94% { transform: translate(2px, -1px); }
+    96% { transform: translate(-1px, 0); }
 }
 
 .search-bar input {
@@ -239,4 +243,37 @@ body {
     color: var(--violet-bright);
     font-size: 9px;
     opacity: 0.8;
+}
+
+/* Overlay de líneas de escaneo (Scanlines) */
+.scanlines {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 4px, 3px 100%;
+    pointer-events: none; /* Esto permite hacer clic debajo */
+    z-index: 1000; /* Siempre arriba de todo */
+    opacity: 0.2;
+}
+
+.marquee {
+    overflow: hidden;
+    width: 100%;
+    color: var(--violet-bright);
+    font-size: 10px;
+    font-family: 'Courier New', monospace;
+    border-top: 1px solid #333;
+    padding: 5px 0;
+}
+
+.marquee span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll 15s linear infinite;
+}
+
+@keyframes scroll {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
 }
