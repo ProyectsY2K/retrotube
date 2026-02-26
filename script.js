@@ -56,19 +56,24 @@ function updatePlayer(id, title, artist) {
     const artistEle = document.getElementById('currentArtist');
 
     if (playerDiv) {
-        // TRUCO FINAL: Usamos la URL de incrustación limpia
-        // Eliminamos restricciones de origen para que funcione desde tu carpeta local
-        const embedUrl = `https://www.youtube.com/embed/${id}?autoplay=1&modestbranding=1&rel=0`;
-        
+        // Quitamos el texto de "[ SELECCIONA UN VIDEO ]" y ponemos el reproductor
         playerDiv.innerHTML = `
-            <iframe 
-                width="100%" 
-                height="100%" 
-                src="${embedUrl}" 
-                frameborder="0" 
-                allow="autoplay; encrypted-media" 
-                allowfullscreen>
-            </iframe>`;
+            <div class="video-wrapper">
+                <iframe 
+                    id="main-video"
+                    src="https://www.youtube.com/embed/${id}?autoplay=1&controls=0&modestbranding=1" 
+                    frameborder="0" 
+                    allow="autoplay; encrypted-media" 
+                    allowfullscreen>
+                </iframe>
+                
+                <div class="custom-controls">
+                    <button class="play-btn" onclick="togglePlay()">▶</button>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+            </div>`;
     }
     
     if (titleEle) titleEle.innerText = title;
