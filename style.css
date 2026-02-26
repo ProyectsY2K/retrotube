@@ -180,3 +180,49 @@ body {
 }
 
 .item.active { border-color: var(--violet-bright); background: #1a0033; }
+
+/* --- Nuevo diseño de la lista de resultados --- */
+.video-item-card {
+    display: flex;
+    gap: 12px;
+    padding: 10px;
+    margin-bottom: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    transition: 0.2s;
+    cursor: pointer;
+    align-items: center;
+}
+
+.video-item-card:hover {
+    background: rgba(188, 19, 254, 0.1);
+    border-color: var(--violet-bright);
+    transform: translateX(5px);
+}
+
+.thumb-wrapper img {
+    border-radius: 4px;
+    border: 1px solid var(--violet-bright);
+    width: 80px;
+    display: block;
+}
+
+.video-info-mini {
+    overflow: hidden; /* Evita que el texto se salga */
+}
+
+.v-title {
+    font-size: 11px;
+    margin: 0;
+    color: #efefef;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Pone "..." si es muy largo */
+}
+
+.v-channel {
+    color: var(--violet-bright);
+    font-size: 9px;
+    opacity: 0.8;
+}
