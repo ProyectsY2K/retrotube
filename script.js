@@ -29,23 +29,26 @@ function renderList(videos) {
 
     videos.forEach((video, index) => {
         const div = document.createElement('div');
-        div.className = 'video-item';
-        div.style = "display:flex; gap:10px; padding:8px; cursor:pointer; border-bottom:1px solid #222; margin-bottom:5px; background: rgba(255,255,255,0.05);";
         
-        // Limpiamos el título para evitar errores de comillas
+        // --- AQUÍ ESTÁ EL CAMBIO ---
+        div.className = 'video-item-card'; 
+        
         const title = video.snippet.title.replace(/['"]/g, "");
         div.onclick = () => updatePlayer(video.id.videoId, title, video.snippet.channelTitle);
         
         div.innerHTML = `
-            <img src="${video.snippet.thumbnails.default.url}" width="70" style="border:1px solid #bc13fe">
-            <div style="overflow:hidden">
-                <p style="font-size:10px; margin:0; color:white; white-space:nowrap; text-overflow:ellipsis;">${video.snippet.title}</p>
-                <small style="color:#bc13fe; font-size:9px;">${video.snippet.channelTitle}</small>
+            <div class="thumb-wrapper">
+                <img src="${video.snippet.thumbnails.default.url}">
+            </div>
+            <div class="video-info-mini">
+                <p class="v-title">${video.snippet.title}</p>
+                <small class="v-channel">${video.snippet.channelTitle}</small>
             </div>
         `;
+        // ---------------------------
+
         list.appendChild(div);
 
-        // Al buscar, carga el primer video automáticamente
         if (index === 0) updatePlayer(video.id.videoId, title, video.snippet.channelTitle);
     });
 }
