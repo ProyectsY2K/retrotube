@@ -34,14 +34,12 @@ body {
 
 /* --- Cabecera Estilo Cyber --- */
 .top-nav {
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px); /* Efecto de vidrio empañado */
+    background: rgba(0, 0, 0, 0.9);
     border-bottom: 2px solid var(--violet-bright);
-    padding: 20px 0;
-    box-shadow: 0 5px 20px rgba(188, 19, 254, 0.3);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    padding: 20px 40px; /* Aumentamos el padding lateral para despegar el logo */
+    display: flex;
+    justify-content: space-between; /* Separa logo de buscador */
+    align-items: center;
 }
 
 .header-content {
@@ -66,48 +64,64 @@ body {
     border-radius: 4px;
 }
 
-/* --- Contenedor del Buscador --- */
+/* --- Buscador más rectangular --- */
 .search-container {
     display: flex;
     align-items: center;
-    gap: 10px;
-    background: #111;
-    padding: 5px 15px;
-    border-radius: 50px; /* Bordes muy redondeados */
+    gap: 0; /* Unimos el input y el botón */
+    background: #000;
     border: 1px solid var(--violet-bright);
-    box-shadow: inset 0 0 10px rgba(188, 19, 254, 0.2);
+    border-radius: 4px; /* Bordes ligeramente redondeados, muy poco */
 }
 
 .search-container input {
     background: transparent;
     border: none;
     color: white;
-    padding: 10px;
+    padding: 10px 15px;
     width: 300px;
-    font-family: 'Verdana', sans-serif;
-    outline: none; /* Quita el borde azul feo al hacer clic */
+    outline: none;
 }
 
-/* --- Botón de Búsqueda Neón --- */
+/* --- Botón Search Rectangular y Calado (Sin fondo) --- */
 .search-container button {
-    background: var(--violet-bright);
-    border: none;
-    color: white;
-    padding: 8px 20px;
-    border-radius: 50px;
+    background: transparent; /* Sin color dentro */
+    border-left: 1px solid var(--violet-bright); /* Línea divisoria */
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    color: var(--violet-bright);
+    padding: 10px 20px;
+    border-radius: 0 3px 3px 0; /* Solo redondeamos las esquinas externas */
     font-weight: bold;
     cursor: pointer;
     text-transform: uppercase;
-    letter-spacing: 1px;
     transition: all 0.3s ease;
-    box-shadow: 0 0 10px var(--violet-bright);
 }
 
+/* --- Hover sutil (Resaltado suave) --- */
 .search-container button:hover {
-    background: white;
+    background: rgba(188, 19, 254, 0.1); /* Un toque de color muy tenue */
+    color: white;
+    text-shadow: 0 0 8px var(--violet-bright);
+}
+
+/* --- Espaciado para la info de la canción --- */
+.video-info {
+    margin-top: 25px; /* Separamos la info del borde del video */
+    padding: 0 10px;
+}
+
+#currentTitle {
+    font-size: 22px;
+    margin-bottom: 8px; /* Espacio con el artista */
+    color: white;
+}
+
+#currentArtist {
+    font-size: 16px;
     color: var(--violet-bright);
-    box-shadow: 0 0 20px white;
-    transform: scale(1.05);
+    margin: 0;
 }
 
 
@@ -187,18 +201,18 @@ body {
     gap: 12px;
     padding: 10px;
     margin-bottom: 8px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid transparent;
-    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid #222; /* Borde oscuro por defecto */
+    border-radius: 4px; /* Cuadrado con toque suave */
     transition: 0.2s;
     cursor: pointer;
     align-items: center;
 }
 
 .video-item-card:hover {
-    background: rgba(188, 19, 254, 0.1);
     border-color: var(--violet-bright);
-    transform: translateX(5px);
+    background: rgba(188, 19, 254, 0.05);
+    transform: none; /* Quitamos el movimiento para que sea más estático y serio */
 }
 
 .thumb-wrapper img {
