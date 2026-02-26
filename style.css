@@ -277,3 +277,41 @@ body {
     0% { transform: translate(0, 0); }
     100% { transform: translate(-100%, 0); }
 }
+
+/* Pantalla de espera estilo Terminal */
+.terminal-boot {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: var(--violet-bright);
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 5px var(--violet-bright);
+}
+
+.glitch-text {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.status-msg {
+    font-size: 14px;
+    letter-spacing: 2px;
+    animation: pulse 2s infinite;
+}
+
+.blink {
+    font-size: 20px;
+    animation: blink-cursor 1s step-end infinite;
+}
+
+@keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
